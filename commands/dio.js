@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(validUnlocks.includes(time)) {
         message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: true
+            SEND_MESSAGES: null
         }).then(() => {
             message.channel.send('Time has begun to move again.');
             clearTimeout(bot.lockit[message.channel.id]);
