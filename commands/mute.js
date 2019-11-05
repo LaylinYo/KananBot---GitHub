@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   if(!muteUser) return message.channel.send("Couldn't find user | **Usage:** `>mute @user <time> <reason>`");
   if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send(":clown: You tried. :clown:");
   let reason = args.slice(2).join(" ");
-  if(!reason) reason = "Rulebreak"
+  if(!reason) return message.channel.send("Specify a reason | **Usage:** `>mute @user <time> <reason>`");
 
   let muterole = message.guild.roles.find(r => r.name === "Muted")
   if(!muterole){
