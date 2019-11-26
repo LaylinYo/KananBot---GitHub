@@ -5,10 +5,10 @@ const PREFIX = '>';
 
 module.exports.run = async (bot, message, args) => {
    
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Insufficient permission.");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Insufficient permission.");
     let banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!banUser) return message.channel.send("Couldn't find user | **Usage:** `>yeet @user <reason>`");
-    if(banUser.hasPermission("ADMINISTRATOR")) return message.channel.send(":clown: You tried. :clown:");
+    if(banUser.hasPermission("ADMINISTRATOR")) return
     let banReason = args.join(" ").slice(22);
     if(!banReason) return message.channel.send("Specify a reason | **Usage:** `>yeet @user <reason>`")
 
